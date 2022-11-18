@@ -204,13 +204,13 @@
       "inputs": {
         "flakeNimbleLib": "flakeNimbleLib",
         "nixpkgs": "nixpkgs_2",
-        "src-leopard-main": "src-leopard-main",
+        "src-leopard-0_1_0": "src-leopard-0_1_0",
         "stew": "stew",
         "unittest2": "unittest2",
         "upraises": "upraises"
       }
     },
-    "src-leopard-main": {
+    "src-leopard-0_1_0": {
       "flake": false,
       "locked": {
         "lastModified": 1668428959,
@@ -222,7 +222,7 @@
       },
       "original": {
         "owner": "status-im",
-        "ref": "refs/heads/main",
+        "ref": "refs/tags/0.1.0",
         "repo": "nim-leopard",
         "type": "github"
       }
