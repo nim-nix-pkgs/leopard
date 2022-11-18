@@ -7,11 +7,11 @@
   inputs.flakeNimbleLib.type  = "github";
   inputs.flakeNimbleLib.inputs.nixpkgs.follows = "nixpkgs";
   
-  inputs.src-leopard-main.flake = false;
-  inputs.src-leopard-main.ref   = "refs/heads/main";
-  inputs.src-leopard-main.owner = "status-im";
-  inputs.src-leopard-main.repo  = "nim-leopard";
-  inputs.src-leopard-main.type  = "github";
+  inputs.src-leopard-0_1_0.flake = false;
+  inputs.src-leopard-0_1_0.ref   = "refs/tags/0.1.0";
+  inputs.src-leopard-0_1_0.owner = "status-im";
+  inputs.src-leopard-0_1_0.repo  = "nim-leopard";
+  inputs.src-leopard-0_1_0.type  = "github";
   
   inputs."stew".owner = "nim-nix-pkgs";
   inputs."stew".ref   = "master";
@@ -40,13 +40,13 @@
   outputs = { self, nixpkgs, flakeNimbleLib, ...}@deps:
   let 
     lib  = flakeNimbleLib.lib;
-    args = ["self" "nixpkgs" "flakeNimbleLib" "src-leopard-main"];
+    args = ["self" "nixpkgs" "flakeNimbleLib" "src-leopard-0_1_0"];
     over = if builtins.pathExists ./override.nix 
            then { override = import ./override.nix; }
            else { };
   in lib.mkRefOutput (over // {
     inherit self nixpkgs ;
-    src  = deps."src-leopard-main";
+    src  = deps."src-leopard-0_1_0";
     deps = builtins.removeAttrs deps args;
     meta = builtins.fromJSON (builtins.readFile ./meta.json);
   } );
